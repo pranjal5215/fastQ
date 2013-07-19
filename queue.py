@@ -2,6 +2,7 @@
 
 import redis
 import uuid
+import pdb
 
 class RedisQueue(object):
 
@@ -23,6 +24,7 @@ class RedisQueue(object):
 
     def put(self, item):
         """Put item into the queue."""
+        pdb.set_trace()
         uid = str(uuid.uuid4())
         redis_data = {}
         redis_data['data'] = item
@@ -35,6 +37,7 @@ class RedisQueue(object):
 
         If optional args block is true and timeout is None (the default), block
         if necessary until an item is available."""
+        pdb.set_trace()
         if block:
             item = self.redisDB.brpop(self.key, timeout=timeout)
         else:
